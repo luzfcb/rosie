@@ -11,8 +11,8 @@ from rosie.chamber_of_deputies.classifiers.monthly_subquota_limit_classifier imp
 class TestMonthlySubquotaLimitClassifier(TestCase):
 
     def setUp(self):
-        from . import get_fixtures_dir
-        FIXTURES_DIR = get_fixtures_dir()
+        from ..utils import get_fixtures_dir
+        FIXTURES_DIR = get_fixtures_dir(__file__)
         the_file = os.path.join(FIXTURES_DIR, 'monthly_subquota_limit_classifier.csv')
         self.dataset = pd.read_csv(the_file,
                                    dtype={'subquota_number': np.str})

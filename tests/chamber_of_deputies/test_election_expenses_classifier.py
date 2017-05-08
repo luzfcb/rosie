@@ -9,8 +9,8 @@ from rosie.chamber_of_deputies.classifiers.election_expenses_classifier import E
 
 class TestElectionExpensesClassifier(TestCase):
     def setUp(self):
-        from . import get_fixtures_dir
-        FIXTURES_DIR = get_fixtures_dir()
+        from ..utils import get_fixtures_dir
+        FIXTURES_DIR = get_fixtures_dir(__file__)
         the_file = os.path.join(FIXTURES_DIR, 'election_expenses_classifier.csv')
         self.dataset = pd.read_csv(the_file,
                                    dtype={'name': np.str, 'legal_entity': np.str})

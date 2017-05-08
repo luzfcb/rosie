@@ -9,8 +9,8 @@ from rosie.chamber_of_deputies.classifiers.irregular_companies_classifier import
 
 class TestIrregularCompaniesClassifier(TestCase):
     def setUp(self):
-        from . import get_fixtures_dir
-        FIXTURES_DIR = get_fixtures_dir()
+        from ..utils import get_fixtures_dir
+        FIXTURES_DIR = get_fixtures_dir(__file__)
         the_file = os.path.join(FIXTURES_DIR, 'irregular_companies_classifier.csv')
         self.dataset = pd.read_csv(the_file,
                                    dtype={'cnpj': np.str})

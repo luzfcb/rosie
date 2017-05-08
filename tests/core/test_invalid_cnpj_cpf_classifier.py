@@ -5,12 +5,12 @@ import numpy as np
 import pandas as pd
 
 from rosie.core.classifiers.invalid_cnpj_cpf_classifier import InvalidCnpjCpfClassifier
-from . import FIXTURES_DIR
 
 
 class TestInvalidCnpjCpfClassifier(TestCase):
     def setUp(self):
-        the_file = os.path.join(FIXTURES_DIR, 'invalid_cnpj_cpf_classifier.csv')
+        from ..utils import get_fixtures_dir
+        the_file = os.path.join(get_fixtures_dir(__file__), 'invalid_cnpj_cpf_classifier.csv')
         self.dataset = pd.read_csv(the_file,
                                    dtype={'recipient_id': np.str})
         self.subject = InvalidCnpjCpfClassifier()
