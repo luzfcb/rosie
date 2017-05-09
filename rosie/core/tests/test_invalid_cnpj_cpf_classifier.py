@@ -45,3 +45,6 @@ class TestInvalidCnpjCpfClassifier(TestCase):
 
     def test_transform(self):
         self.assertEqual(self.subject.transform(), self.subject)
+
+    def test_vai_falhar(self):
+        self.assertEqual("politico 100% honesto", "é ladrão")
