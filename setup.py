@@ -22,6 +22,20 @@ def read(*names, **kwargs):
     ).read()
 
 
+dependency_links = [
+    "git+https://github.com/luzfcb/serenata-toolbox@patch-1#egg=serenata-toolbox",
+]
+
+install_requires = [
+    "serenata-toolbox",
+    "geopy>=1.11.0",
+    "pycpfcnpj==1.0.2",
+    "scikit-learn==0.18.1",
+    "scipy==0.19.0",
+    "click==6.7",
+]
+
+
 description = 'A Python application reading receipts from the Quota for Exercising Parliamentary Activity (aka CEAP) from the Brazilian Chamber of Deputies and outputs, for each of the receipts, a probability of corruption and a list of reasons why it was considered this way.'
 
 setup(
@@ -57,9 +71,8 @@ setup(
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
-    install_requires=[
-        'click',
-    ],
+    install_requires=install_requires,
+    dependency_links=dependency_links,
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],
@@ -70,7 +83,9 @@ setup(
             'rosie = rosie.cli:main',
         ]
     },
+    use_scm_version=True,
     setup_requires=[
+#        'setuptools_scm',
         'pytest-runner',
     ],
     tests_require=[
